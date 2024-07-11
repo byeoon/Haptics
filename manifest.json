@@ -1,11 +1,16 @@
 {
-   "name": "SilentTyping",
+   "name": "Haptics",
    "version": "1.0.0",
-   "description": "Silences your typing indicator.",
+   "description": "Enables haptics around Discord.",
    "authors": [
       {
-         "name": "eternal",
-         "id": "263689920210534400"
+         "name": "byeoon",
+         "id": "1167275288036655133"
       }
+   ],
+   "color": "#00007d",
+   "sourceUrl": "https://github.com/byeoon/Haptics",
+   "changelog": [
+      "\n1.0.0: vibrator hehe"
    ]
 }

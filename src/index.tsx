@@ -3,18 +3,20 @@ import { React } from 'enmity/metro/common';
 import { getByProps } from 'enmity/metro';
 import { create } from 'enmity/patcher';
 import manifest from '../manifest.json';
+import {get} from "enmity/api/settings";
 
 import Settings from './components/Settings';
 
 const Typing = getByProps('startTyping');
-const Patcher = create('silent-typing');
+const Patcher = create('haptics');
 
-const SilentTyping: Plugin = {
+const Haptics: Plugin = {
    ...manifest,
 
    onStart() {
-      Patcher.instead(Typing, 'startTyping', () => { });
-      Patcher.instead(Typing, 'stopTyping', () => { });
+      if(get(manifest.name, "vibrator", true)) { 
+         setInterval(() => getByProps("triggerHaptic").triggerHaptic())
+      }
    },
 
    onStop() {
@@ -26,4 +28,4 @@ const SilentTyping: Plugin = {
    }
 };
 
-registerPlugin(SilentTyping);
+registerPlugin(Haptics);
