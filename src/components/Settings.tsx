@@ -70,10 +70,10 @@ export default ({ settings }: SettingsProps) => {
       <Text style={styles.tab}>Settings</Text>
 
       <FormRow
-        label="Vibrator Mode"
+        label="Vibrator Mode (why..)"
         trailing={
           <FormSwitch
-            value={settings.getBoolean("vibrator", true)}
+            value={settings.getBoolean("vibrator", false)}
             onValueChange={() => settings.toggle("vibrator", true)}
           />
         }
