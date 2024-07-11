@@ -4,16 +4,16 @@ import { getByProps } from 'enmity/metro';
 import { create } from 'enmity/patcher';
 import manifest from '../manifest.json';
 import {get} from "enmity/api/settings";
-
 import Settings from './components/Settings';
 
-const Typing = getByProps('startTyping');
 const Patcher = create('haptics');
-const vibrateProp = getByProps("trigerHaptic");
-const hapticsProp = getByProps("vibrate");
+const hapticsProp = getByProps("trigerHaptic");
+const vibrateProp = getByProps("vibrate");
 const viewProp = getByProps("View");
+const LazyActionSheet = getByProps("openLazy", "hideActionSheet");
 
 let timer;
+let actionsheetTimer;
 
 const Haptics: Plugin = {
    ...manifest,
@@ -28,11 +28,24 @@ const Haptics: Plugin = {
          )
       timer = interval;
    }
+
+   const hapticsActionSheet = Patcher.before(LazyActionSheet, 'openLazy', (_, [component, key]) => {
+      let intervalAS = setInterval(() => hapticsProp.triggerHaptic());
+      actionsheetTimer = intervalAS;
+      hapticsActionSheet();
+      setTimeout(hapticsActionSheet, 250);
+      return intervalAS;
+
+   });
+
+
+   
    },
 
    onStop() {
       Patcher.unpatchAll();
       clearInterval(timer);
+      clearInterval(actionsheetTimer);
    },
 
    getSettingsPanel({ settings }) {
