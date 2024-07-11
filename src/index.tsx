@@ -9,13 +9,18 @@ import Settings from './components/Settings';
 
 const Typing = getByProps('startTyping');
 const Patcher = create('haptics');
+const vibrateProp = getByProps("trigerHaptic");
+const hapticsProp = getByProps("vibrate");
+const viewProp = getByProps("View");
+
 let timer;
+
 const Haptics: Plugin = {
    ...manifest,
 
    onStart() {
       if(get(manifest.name, "vibrator", true)) { 
-         let interval = setInterval(getByProps("vibrate").vibrate(getByProps("View").Platform.select(
+         let interval = setInterval(vibrateProp.vibrate(viewProp.Platform.select(
             { 
                ios: [10], 
                android: 10 
@@ -27,7 +32,7 @@ const Haptics: Plugin = {
 
    onStop() {
       Patcher.unpatchAll();
-      clearInterval(timer)
+      clearInterval(timer);
    },
 
    getSettingsPanel({ settings }) {

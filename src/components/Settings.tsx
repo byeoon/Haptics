@@ -1,7 +1,6 @@
 import { FormRow, View, ScrollView, Text, FormSwitch, Image, FormDivider } from "enmity/components";
 import { SettingsStore } from "enmity/api/settings";
 import { Constants, React, StyleSheet, Toasts } from "enmity/metro/common";
-import { getByProps } from "enmity/metro";
 import { Linking } from "enmity/metro/common";
 import manifest from "../../manifest.json";
 
@@ -70,7 +69,7 @@ export default ({ settings }: SettingsProps) => {
       <Text style={styles.tab}>Settings</Text>
 
       <FormRow
-        label="Vibrator Mode (why..)"
+        label="Vibrator Mode"
         trailing={
           <FormSwitch
             value={settings.getBoolean("vibrator", false)}
