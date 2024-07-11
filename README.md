@@ -1,19 +1,7 @@
 <div align='center'>
-   <img src='https://raw.githubusercontent.com/enmity-mod/assets/main/Enmity_Banner.png?raw=true' />
-</div>
-
----
-
-<div align='center'>
-   <h3>Plugin Template</h3>
+   <h3>Haptics</h3>
 
    Template for Enmity plugins.<br />
-   Use `npm install` to install the required modules and use `npm run build` to build your plugin.
+   https://raw.githubusercontent.com/byeoon/Haptics/main/dist/Haptics.js
 </div>
 
----
-
-<div align='center' style='margin-top: 15px;'>
-   <a href='https://discord.gg/rMdzhWUaGT'><img align='center' alt='Discord' src='https://img.shields.io/discord/950850315601711176?color=36309d&label=DISCORD&logo=discord&logoColor=white&style=for-the-badge'></a>
-   <a href='https://twitter.com/EnmityApp'><img align='center' alt='Twitter' src='https://img.shields.io/twitter/follow/EnmityApp?color=36309d&label=TWITTER&logo=TWITTER&logoColor=white&style=for-the-badge'></a>
-</div>
